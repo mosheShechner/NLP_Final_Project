@@ -1,0 +1,5 @@
+JN/.ipynb_checkpoints/
+JN/*.tmp
+GenerationPipe/.idea/
+GenerationPipe/venv/
+GenerationPip/*.tmp
