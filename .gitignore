@@ -2,4 +2,5 @@ JN/.ipynb_checkpoints/
 JN/*.tmp
 GenerationPipe/.idea/
 GenerationPipe/venv/
-GenerationPip/*.tmp
+GenerationPipe/*.tmp
+GenerationPipe/__pycache__/
