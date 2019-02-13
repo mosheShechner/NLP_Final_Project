@@ -16,6 +16,10 @@ minNumOfWords = 50
 punctList           = [r'.', r',', r'?',r'!',r'(',r')', r'—', r'–' ,r'\-', r'־' , r'"', r':', r';', '\'', r'\[', r'\]']
 keepPuncList        = [r'.', r',', r'?',r'!']
 removePunctList                           = [r'(',r')', r'—', r'–' ,r'\-', r'־' , r'"', r':', r';', '\'', r'\[', r'\]']
+numConst            = r'0'
+engConst            =  r'ENG'
+XY_DelConst         = r'<XYDEL>'
+DATA_DelConst       = r'<DATADEL>'
 
 # 1.Fetch
 # ##########################################################################################
@@ -165,25 +169,25 @@ def tag_paragraph(paragraph, punctList):
     # for word, tag in zip(x,y): print("%s %s" %(word, tag))
     return x, y
 
-def getXY(paragraph, removePunctList, keepPuncList):
-    # remove unwanted ounctuation
+def getXY(paragraph, removePunctList, keepPuncList, inNumConst = numConst, inEngConst = engConst, inXY_DelConst = XY_DelConst):
+    # remove unwanted punctuation
     noPunctParagraph = removePunct(paragraph, removePunctList)
+
     # tag paragraph with remain punctuation
     X_vec, Y_vec = tag_paragraph(noPunctParagraph, keepPuncList)
-    # print(X_vec)
-    # print(Y_vec)
+
     # joinn to string
     X_str = " ".join(X_vec)
-    X_str = relpaceConstStr(X_str, "גבולמספרלובג", "<מספר>")
-    X_str = relpaceConstStr(X_str, "גבולאנגליתלובג", "<אנגלית>")
+    X_str = relpaceConstStr(X_str, "גבולמספרלובג", inNumConst)
+    X_str = relpaceConstStr(X_str, "גבולאנגליתלובג", inEngConst)
     Y_str = " ".join(Y_vec)
     #  here can add record info
-    XY_str = X_str + "<XYDEL>" + Y_str
+    XY_str = X_str + inXY_DelConst + Y_str
     return XY_str
 
 # 7.Aggregate -
 # ##########################################################################################
-def getDataFromURL(URL):
+def getDataFromURL(URL, inNumConst = numConst, inEngConst = engConst, inXY_DelConst = XY_DelConst, inDATA_DelConst = DATA_DelConst):
     # fetch
     sourceCode = getSingleURLSourceCode(URL)
 
@@ -197,8 +201,8 @@ def getDataFromURL(URL):
     longParagraphList = keepLongParagraphs(formattedParagraphList, minNumOfWords)
 
     # vectorize
-    XY_List = [getXY(paragraph[0], removePunctList, keepPuncList) for paragraph in longParagraphList]
+    XY_List = [getXY(paragraph[0], removePunctList, keepPuncList, inNumConst, inEngConst, inXY_DelConst) for paragraph in longParagraphList]
 
     # aggregate
-    DATA = "<DATADEL>".join(XY_List)
+    DATA = inDATA_DelConst.join(XY_List)
     return DATA
