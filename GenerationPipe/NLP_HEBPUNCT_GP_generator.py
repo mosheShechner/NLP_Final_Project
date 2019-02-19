@@ -63,12 +63,25 @@ def generate(URLList, outFileName, verbose = True):
         if (verbose): print("adding to data set URL: %s" %(URL))
         addURLToData(URL, outFilePath_indx, outFilePath_data)
 
+def getStringFromDataFile(filePrefix):
+    scriptPath = os.path.dirname(os.path.realpath('__file__'))
+    scriptPathPrev = os.path.split(scriptPath)[0]
+    relFilePath_data = "\\data\\" + filePrefix + ".txt"
+
+    dataFilePath    = scriptPathPrev + relFilePath_data
+    dataFile        = open(dataFilePath, "r", encoding='utf-8')
+    dataStr         = dataFile.read()
+    # print(dataStr)
+    return dataStr
+
 targetUrlList = ["https://he.wikipedia.org/wiki/%D7%A7%D7%A4%D7%99%D7%98%D7%9C%D7%99%D7%96%D7%9D",
                  "https://he.wikipedia.org/wiki/%D7%A7%D7%A8%D7%9C_%D7%9E%D7%A8%D7%A7%D7%A1",
                  "https://he.wikipedia.org/wiki/%D7%90%D7%99%D7%9C%D7%9F_%D7%A8%D7%9E%D7%95%D7%9F",
                  "https://he.wikipedia.org/wiki/%D7%90%D7%9C%D7%91%D7%A8%D7%98_%D7%90%D7%99%D7%99%D7%A0%D7%A9%D7%98%D7%99%D7%99%D7%9F"]
 
 generate(targetUrlList, "train_data", True)
+
+print(getStringFromDataFile("train_data"))
 
 # URLList =  [("קפיטליזם","https://he.wikipedia.org/wiki/%D7%A7%D7%A4%D7%99%D7%98%D7%9C%D7%99%D7%96%D7%9D"),
 #             ("קרל מרקס","https://he.wikipedia.org/wiki/%D7%A7%D7%A8%D7%9C_%D7%9E%D7%A8%D7%A7%D7%A1"),

@@ -1,6 +1,7 @@
 JN/.ipynb_checkpoints/
 JN/*.tmp
 GenerationPipe/.idea/*
+GenerationPipe/.idea/workspace.xml
 GenerationPipe/.idea/
 GenerationPipe/venv/
 GenerationPipe/*.tmp
