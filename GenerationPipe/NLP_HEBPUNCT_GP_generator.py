@@ -32,7 +32,6 @@ def getDataFromURLList(URLList):
     outData = r"<DATADEL>".join(dataList)
     return outData
 
-outData = getDataFromURLList(targetUrlList)
-print(outData)
+
 
 
