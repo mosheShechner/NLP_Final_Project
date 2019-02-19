@@ -83,16 +83,7 @@ generate(targetUrlList, "train_data", True)
 
 print(getStringFromDataFile("train_data"))
 
-# URLList =  [("קפיטליזם","https://he.wikipedia.org/wiki/%D7%A7%D7%A4%D7%99%D7%98%D7%9C%D7%99%D7%96%D7%9D"),
-#             ("קרל מרקס","https://he.wikipedia.org/wiki/%D7%A7%D7%A8%D7%9C_%D7%9E%D7%A8%D7%A7%D7%A1"),
-#             ("אילן רמון","https://he.wikipedia.org/wiki/%D7%90%D7%99%D7%9C%D7%9F_%D7%A8%D7%9E%D7%95%D7%9F"),
-#             ("אלברט איינשטיין","https://he.wikipedia.org/wiki/%D7%90%D7%9C%D7%91%D7%A8%D7%98_%D7%90%D7%99%D7%99%D7%A0%D7%A9%D7%98%D7%99%D7%99%D7%9F")]
-# def getDataFromURLList(URLList):
-#     dataList = [preproc.getDataFromURL(URL) for URL in URLList]
-#     outData = r"<DATADEL>".join(dataList)
-#     return outData
-# outData = getDataFromURLList(targetUrlList)
-# print(outData)
+
 
 
 

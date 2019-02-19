@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="20144c14-1d4f-4c8b-b6a1-8b5327044792" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NLP_HEBPUNCT_GP_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLP_HEBPUNCT_GP_generator.py" afterDir="false" />
     </list>
+=======
+<<<<<<< HEAD
+    <list default="true" id="20144c14-1d4f-4c8b-b6a1-8b5327044792" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NLP_HEBPUNCT_GP_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLP_HEBPUNCT_GP_generator.py" afterDir="false" />
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/../JN/trainer.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../JN/trainer.ipynb" afterDir="false" />
+=======
+>>>>>>> 012b273fbb0443b84a28609f90c11ccee4d94aea
+    </list>
+=======
+    <list default="true" id="20144c14-1d4f-4c8b-b6a1-8b5327044792" name="Default Changelist" comment="" />
+>>>>>>> 530279775885c75e3d01ca67574589e4cf04e9c3
+>>>>>>> 3c4b6672a1316c48631c066fdfb3e139b1722ed7
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,14 +64,31 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="1022750199">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.10" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NLP_HEBPUNCT_GP_pre_processing.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="243">
+=======
+<<<<<<< HEAD
+            <state relative-caret-position="168">
+              <caret line="168" column="38" selection-start-line="168" selection-start-column="33" selection-end-line="168" selection-end-column="38" />
+=======
+            <state relative-caret-position="81">
+>>>>>>> 3c4b6672a1316c48631c066fdfb3e139b1722ed7
               <caret line="12" selection-start-line="12" selection-end-line="21" selection-end-column="34" />
+>>>>>>> 012b273fbb0443b84a28609f90c11ccee4d94aea
               <folding>
                 <element signature="e#448#474#0" expanded="true" />
               </folding>
@@ -67,8 +99,22 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/NLP_HEBPUNCT_GP_generator.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="207">
               <caret line="81" selection-start-line="81" selection-end-line="81" />
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+            <state relative-caret-position="382">
+              <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+=======
+            <state relative-caret-position="301">
+              <caret line="70" column="35" selection-start-line="70" selection-start-column="35" selection-end-line="70" selection-end-column="35" />
+=======
+            <state relative-caret-position="247">
+              <caret line="65" selection-start-line="65" selection-end-line="70" selection-end-column="43" />
+>>>>>>> 530279775885c75e3d01ca67574589e4cf04e9c3
+>>>>>>> 3c4b6672a1316c48631c066fdfb3e139b1722ed7
               <folding>
                 <element signature="e#458#506#0" expanded="true" />
               </folding>
@@ -96,6 +142,7 @@
               <folding>
                 <element signature="e#552#578#0" expanded="true" />
               </folding>
+>>>>>>> 012b273fbb0443b84a28609f90c11ccee4d94aea
             </state>
           </provider>
         </entry>
@@ -117,11 +164,15 @@
       <find>getCleanParagraph</find>
       <find>word_tokenize</find>
       <find>getDataFromURLList</find>
+<<<<<<< HEAD
+      <find>print</find>
+=======
       <find>os.</find>
       <find>preprocessSingleFile</find>
       <find>printLstSentences</find>
       <find>outFilePath</find>
       <find>&lt;DATADEL&gt;</find>
+>>>>>>> 012b273fbb0443b84a28609f90c11ccee4d94aea
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -136,6 +187,12 @@
       </list>
     </option>
   </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-10" />
     <option name="width" value="980" />
@@ -149,6 +206,7 @@
     <panes />
   </component>
   <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../programmingHW/HW1/submit_late/part1/src/NLP_HW01_Q1_pre_processing.py" />
   </component>
@@ -182,6 +240,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/NLP_HEBPUNCT_GP_generator.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -211,12 +270,22 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+<<<<<<< HEAD
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
+=======
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+<<<<<<< HEAD
+    <editor active="true" />
+=======
+>>>>>>> 530279775885c75e3d01ca67574589e4cf04e9c3
+>>>>>>> 3c4b6672a1316c48631c066fdfb3e139b1722ed7
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3021978" />
@@ -228,15 +297,33 @@
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="SciView" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.py" />
+    <entry file="file://$PROJECT_DIR$/../../../programmingHW/HW1/submit_late/part1/src/NLP_HW01_Q1_B_1_1_1.py" />
+    <entry file="file://$PROJECT_DIR$/../../../programmingHW/HW1/submit_late/part1/src/NLP_HW01_Q1_language_model.py" />
+    <entry file="file://$PROJECT_DIR$/../../../programmingHW/HW1/submit_late/part1/src/NLP_HW01_Q1_B_1_3.py" />
+    <entry file="file://$PROJECT_DIR$/../../../programmingHW/HW1/submit_late/part1/src/NLP_HW01_Q1_B_1_2.py" />
+    <entry file="file://$PROJECT_DIR$/../../../programmingHW/HW1/submit_late/part1/src/NLP_HW01_Q1_B_1_1_2.py" />
+    <entry file="file://$PROJECT_DIR$/../../../programmingHW/HW1/submit_late/part1/src/NLP_HW01_Q1_pre_processing.py" />
+    <entry file="file://$PROJECT_DIR$/NLP_HEBPUNCT_GP_pre_processing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="168" column="38" selection-start-line="168" selection-start-column="33" selection-end-line="168" selection-end-column="38" />
+=======
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -258,8 +345,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/NLP_HEBPUNCT_GP_pre_processing.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="243">
           <caret line="12" selection-start-line="12" selection-end-line="21" selection-end-column="34" />
+=======
+        <state relative-caret-position="153">
+          <caret line="104" column="21" selection-start-line="104" selection-start-column="4" selection-end-line="104" selection-end-column="21" />
+>>>>>>> 012b273fbb0443b84a28609f90c11ccee4d94aea
+>>>>>>> 3c4b6672a1316c48631c066fdfb3e139b1722ed7
           <folding>
             <element signature="e#448#474#0" expanded="true" />
           </folding>
@@ -268,7 +361,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../../../programmingHW/HW1/submit_late/part1/src/NLP_HW01_Q1_B_1_1_1.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="621">
+=======
+<<<<<<< HEAD
+        <state relative-caret-position="382">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+=======
+        <state relative-caret-position="315">
+>>>>>>> 3c4b6672a1316c48631c066fdfb3e139b1722ed7
           <caret line="24" selection-start-line="24" selection-end-line="26" selection-end-column="19" />
           <folding>
             <element signature="e#475#519#0" expanded="true" />
@@ -283,6 +384,7 @@
           <folding>
             <element signature="e#552#578#0" expanded="true" />
           </folding>
+>>>>>>> 012b273fbb0443b84a28609f90c11ccee4d94aea
         </state>
       </provider>
     </entry>
