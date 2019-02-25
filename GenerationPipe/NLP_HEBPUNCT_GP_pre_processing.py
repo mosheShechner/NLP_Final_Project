@@ -185,7 +185,28 @@ def getXY(paragraph, removePunctList, keepPuncList, inNumConst = numConst, inEng
     XY_str = X_str + inXY_DelConst + Y_str
     return XY_str
 
-# 7.Aggregate -
+
+# 7.Verify Data -
+# ##########################################################################################
+def checkVectorOK(inVector):
+    # vector check function
+    vectorOk = True
+
+    if (inVector == ""): vectorOk = False
+    if (len(inVector) < minNumOfWords): vectorOk = False
+    return vectorOk
+
+
+def getValidVectorList(inXYList):
+    outXYList = []
+    for xy in inXYList:
+        if checkVectorOK(xy):
+            outXYList.append(xy)
+        else:
+            print("print: cought bad vector = %s" % xy)
+    return outXYList
+
+# 8.Aggregate -
 # ##########################################################################################
 def getDataFromURL(URL, inNumConst = numConst, inEngConst = engConst, inXY_DelConst = XY_DelConst, inDATA_DelConst = DATA_DelConst):
     # fetch
@@ -203,6 +224,10 @@ def getDataFromURL(URL, inNumConst = numConst, inEngConst = engConst, inXY_DelCo
     # vectorize
     XY_List = [getXY(paragraph[0], removePunctList, keepPuncList, inNumConst, inEngConst, inXY_DelConst) for paragraph in longParagraphList]
 
+    # check vectors
+    # XY_Valid_List = getValidVectorList(XY_List)
+    XY_Valid_List = XY_List
+
     # aggregate
-    DATA = inDATA_DelConst.join(XY_List)
+    DATA = inDATA_DelConst.join(XY_Valid_List)
     return DATA

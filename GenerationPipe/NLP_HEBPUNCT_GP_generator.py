@@ -33,9 +33,12 @@ def addURLToData(URL, outFilePath_indx, outFilePath_data):
 
             # add data
             outFile_data = open(outFilePath_data, "a", encoding='utf-8')
-            data = DATA_DelConst + preproc.getDataFromURL(URL, numConst, engConst, XY_DelConst, DATA_DelConst)
-            outFile_data.write(data)
-            outFile_data.close()
+            URLData = preproc.getDataFromURL(URL, numConst, engConst, XY_DelConst, DATA_DelConst)
+            if (preproc.checkVectorOK(URLData)):
+                #data = DATA_DelConst + preproc.getDataFromURL(URL, numConst, engConst, XY_DelConst, DATA_DelConst)
+                data = DATA_DelConst + URLData
+                outFile_data.write(data)
+                outFile_data.close()
         else:
             outFile_indx.close()
     else:
@@ -60,7 +63,7 @@ def generate(URLList, outFileName, verbose = True):
     outFilePath_indx = scriptPathPrev + relFilePath_indx
 
     for URL in URLList:
-        if (verbose): print("adding to data set URL: %s" %(URL))
+        if (verbose): print("DEBUG adding to data set URL: %s" %(URL))
         addURLToData(URL, outFilePath_indx, outFilePath_data)
 
 def getStringFromDataFile(filePrefix):
