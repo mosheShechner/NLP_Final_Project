@@ -35,7 +35,6 @@ def addURLToData(URL, outFilePath_indx, outFilePath_data):
             outFile_data = open(outFilePath_data, "a", encoding='utf-8')
             URLData = preproc.getDataFromURL(URL, numConst, engConst, XY_DelConst, DATA_DelConst)
             if (preproc.checkVectorOK(URLData)):
-                #data = DATA_DelConst + preproc.getDataFromURL(URL, numConst, engConst, XY_DelConst, DATA_DelConst)
                 data = DATA_DelConst + URLData
                 outFile_data.write(data)
                 outFile_data.close()
