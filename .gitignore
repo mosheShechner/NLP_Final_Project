@@ -7,3 +7,4 @@ GenerationPipe/venv/
 GenerationPipe/*.tmp
 GenerationPipe/__pycache__/
 data/
+LM/
