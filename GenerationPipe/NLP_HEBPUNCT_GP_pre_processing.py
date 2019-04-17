@@ -1,7 +1,7 @@
 # ##########################################################################################
 # module        NLP_HEBPUNCT_GP_pre_processing
 # ##########################################################################################
-# path          .../repository\GenerationPipe\NLP_HEBPUNCT_GP_pre_processing.py
+# path          ...\repository\GenerationPipe\NLP_HEBPUNCT_GP_pre_processing.py
 # Purpose       pre-process
 # description
 # ##########################################################################################
@@ -17,7 +17,7 @@ punctList           = [r'.', r',', r'?',r'!',r'(',r')', r'—', r'–' ,r'\-', r
 keepPuncList        = [r'.', r',', r'?',r'!']
 removePunctList                           = [r'(',r')', r'—', r'–' ,r'\-', r'־' , r'"', r':', r';', '\'', r'\[', r'\]']
 numConst            = r'0'
-engConst            =  r'ENG'
+engConst            = r'ENG'
 XY_DelConst         = r'<XYDEL>'
 DATA_DelConst       = r'<DATADEL>'
 
@@ -206,7 +206,36 @@ def getValidVectorList(inXYList):
             print("print: cought bad vector = %s" % xy)
     return outXYList
 
-# 8.Aggregate -
+# 8.Gather Statistics -
+# ##########################################################################################
+def calcDataStatistics(DataAuxInfoList):
+    # recives list of aux info for each paragraph
+    # generates statistic vector
+    NOF_paragraphs    = len(DataAuxInfoList)
+    AVG_paragraph_len = sum(DataAuxInfoList) / len(DataAuxInfoList)
+    MIN_paragraph_len = min(DataAuxInfoList)
+    MAX_paragraph_len = max(DataAuxInfoList)
+    return dict([("NOF_paragraphs"   , NOF_paragraphs   ),
+                 ("AVG_paragraph_len", AVG_paragraph_len),
+                 ("MIN_paragraph_len", MIN_paragraph_len),
+                 ("MAX_paragraph_len", MAX_paragraph_len)])
+
+
+def getUpdateStatistics(prevStats, URLStats):
+    # funciton recives statistics of previous all URL's, and updates it with new URL statistics
+
+    NOF_paragraphs    = prevStats["NOF_paragraphs"]    + URLStats["NOF_paragraphs"]
+    AVG_paragraph_len = prevStats["AVG_paragraph_len"] * (prevStats["NOF_paragraphs"] / NOF_paragraphs) + \
+                        URLStats ["AVG_paragraph_len"] * (URLStats ["NOF_paragraphs"] / NOF_paragraphs)
+    MIN_paragraph_len = min(prevStats["MIN_paragraph_len"], URLStats["MIN_paragraph_len"])
+    MAX_paragraph_len = max(prevStats["MAX_paragraph_len"], URLStats["MAX_paragraph_len"])
+    newStats = dict([("NOF_paragraphs"   , NOF_paragraphs   ),
+                     ("AVG_paragraph_len", AVG_paragraph_len),
+                     ("MIN_paragraph_len", MIN_paragraph_len),
+                     ("MAX_paragraph_len", MAX_paragraph_len)])
+    return newStats
+
+# 9.Aggregate -
 # ##########################################################################################
 def getDataFromURL(URL, inNumConst = numConst, inEngConst = engConst, inXY_DelConst = XY_DelConst, inDATA_DelConst = DATA_DelConst):
     # fetch
@@ -224,10 +253,13 @@ def getDataFromURL(URL, inNumConst = numConst, inEngConst = engConst, inXY_DelCo
     # vectorize
     XY_List = [getXY(paragraph[0], removePunctList, keepPuncList, inNumConst, inEngConst, inXY_DelConst) for paragraph in longParagraphList]
 
+    # Statistics
+    ParagraphAuxInfoList = [paragraph[1] for paragraph in longParagraphList]
+
     # check vectors
     # XY_Valid_List = getValidVectorList(XY_List)
     XY_Valid_List = XY_List
 
     # aggregate
     DATA = inDATA_DelConst.join(XY_Valid_List)
-    return DATA
+    return (DATA, ParagraphAuxInfoList)
