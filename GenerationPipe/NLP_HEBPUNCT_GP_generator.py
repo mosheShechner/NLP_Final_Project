@@ -19,8 +19,10 @@ engConst            = r'ENG'
 XY_DelConst         = r'<XYDEL>'
 DATA_DelConst       = r'<DATADEL>'
 
-def addURLToData(URL, outFilePath_indx, outFilePath_data):
+def addURLToData(URL, outFilePath_indx, outFilePath_data, outFilePath_stts):
     if (os.path.isfile(outFilePath_indx)):
+        # index file exists (middle of process)
+
         outFile_indx = open(outFilePath_indx, "r+", encoding='utf-8')
         exitsURLList = outFile_indx.read().split("\n")
         # print(exitsURLList)
@@ -31,25 +33,48 @@ def addURLToData(URL, outFilePath_indx, outFilePath_data):
             outFile_indx.write(URL+"\n")
             outFile_indx.close()
 
-            # add data
-            outFile_data = open(outFilePath_data, "a", encoding='utf-8')
-            URLData = preproc.getDataFromURL(URL, numConst, engConst, XY_DelConst, DATA_DelConst)
+            (URLData, URLauxInfo) = preproc.getDataFromURL(URL, numConst, engConst, XY_DelConst, DATA_DelConst)
             if (preproc.checkVectorOK(URLData)):
+                # add data
+                outFile_data = open(outFilePath_data, "a", encoding='utf-8')
                 data = DATA_DelConst + URLData
                 outFile_data.write(data)
                 outFile_data.close()
+
+                # add statistics
+                outFile_stts = open(outFilePath_stts, "r+", encoding='utf-8')
+                prev_stts = eval(outFile_stts.read())
+                outFile_stts.close()
+
+                URLstts = preproc.calcDataStatistics(URLauxInfo)
+                curr_stts = preproc.getUpdateStatistics(prev_stts, URLstts)
+
+                outFile_stts = open(outFilePath_stts, "w", encoding='utf-8')
+                prev_stts = outFile_stts.write(str(curr_stts))
+                outFile_stts.close()
         else:
             outFile_indx.close()
+
     else:
+        # index file is new
+
         # add URL to index
         outFile_indx = open(outFilePath_indx, "w", encoding='utf-8')
         outFile_indx.write(URL+"\n")
         outFile_indx.close()
+
+        (data, auxInfo) = preproc.getDataFromURL(URL, numConst, engConst, XY_DelConst, DATA_DelConst)
+        stts = preproc.calcDataStatistics(auxInfo)
+
         # add data
         outFile_data = open(outFilePath_data, "w", encoding='utf-8')
-        data = preproc.getDataFromURL(URL, numConst, engConst, XY_DelConst, DATA_DelConst)
         outFile_data.write(data)
         outFile_data.close()
+
+        # add statistics
+        outFile_stts = open(outFilePath_stts, "w", encoding='utf-8')
+        outFile_stts.write(str(stts))
+        outFile_stts.close()
 
 def generate(URLList, outFileName, verbose = True):
     # build data output file path
@@ -58,12 +83,14 @@ def generate(URLList, outFileName, verbose = True):
 
     relFilePath_data = "\\data\\" + outFileName + ".txt"
     relFilePath_indx = "\\data\\" + outFileName + "_indx.txt"
+    relFilePath_stts = "\\data\\" + outFileName + "_aux_stats.txt"
     outFilePath_data = scriptPathPrev + relFilePath_data
     outFilePath_indx = scriptPathPrev + relFilePath_indx
+    outFilePath_stts = scriptPathPrev + relFilePath_stts
 
     for URL in URLList:
         if (verbose): print("DEBUG adding to data set URL: %s" %(URL))
-        addURLToData(URL, outFilePath_indx, outFilePath_data)
+        addURLToData(URL, outFilePath_indx, outFilePath_data, outFilePath_stts)
 
 def getStringFromDataFile(filePrefix):
     scriptPath = os.path.dirname(os.path.realpath('__file__'))
@@ -192,7 +219,7 @@ readyUrlList = [
 
 # print(getStringFromDataFile("train_data"))
 
-
+generate(targetUrlList, "2019_04_17_train_data", True)
 
 
 
