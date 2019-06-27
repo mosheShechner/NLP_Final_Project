@@ -192,8 +192,12 @@ def checkVectorOK(inVector):
     # vector check function
     vectorOk = True
 
-    if (inVector == ""): vectorOk = False
-    if (len(inVector) < minNumOfWords): vectorOk = False
+    if (inVector == ""):
+        vectorOk = False
+        print("print: caught bad vector = %s" % inVector)
+    if (len(inVector) < minNumOfWords):
+        vectorOk = False
+        print("print: caught bad vector = %s" % inVector)
     return vectorOk
 
 

@@ -88,6 +88,7 @@ def generate(URLList, outFileName, verbose = True):
     outFilePath_indx = scriptPathPrev + relFilePath_indx
     outFilePath_stts = scriptPathPrev + relFilePath_stts
 
+    #if (verbose): print("DEBUG adding to data set URLList: %s" % (URLList))
     for URL in URLList:
         if (verbose): print("DEBUG adding to data set URL: %s" %(URL))
         addURLToData(URL, outFilePath_indx, outFilePath_data, outFilePath_stts)
@@ -108,7 +109,7 @@ targetUrlList = ["https://he.wikipedia.org/wiki/%D7%A7%D7%A4%D7%99%D7%98%D7%9C%D
                  "https://he.wikipedia.org/wiki/%D7%90%D7%99%D7%9C%D7%9F_%D7%A8%D7%9E%D7%95%D7%9F",
                  "https://he.wikipedia.org/wiki/%D7%90%D7%9C%D7%91%D7%A8%D7%98_%D7%90%D7%99%D7%99%D7%A0%D7%A9%D7%98%D7%99%D7%99%D7%9F"]
 
-readyUrlList = [
+readyUrlList1 = [
     "https://he.wikipedia.org/wiki/%D7%A7%D7%A4%D7%99%D7%98%D7%9C%D7%99%D7%96%D7%9D",
     "https://he.wikipedia.org/wiki/%D7%A7%D7%A8%D7%9C_%D7%9E%D7%A8%D7%A7%D7%A1",
     "https://he.wikipedia.org/wiki/%D7%90%D7%99%D7%9C%D7%9F_%D7%A8%D7%9E%D7%95%D7%9F",
@@ -215,11 +216,142 @@ readyUrlList = [
     "https://he.wikipedia.org/wiki/%D7%92%D7%91%D7%99%D7%A2_%D7%94%D7%A2%D7%95%D7%9C%D7%9D_%D7%91%D7%9B%D7%93%D7%95%D7%A8%D7%92%D7%9C",
     "https://he.wikipedia.org/wiki/%D7%91%D7%A8%D7%A6%D7%9C%D7%95%D7%A0%D7%94_(%D7%9B%D7%93%D7%95%D7%A8%D7%92%D7%9C)"]
 
+readyUrlList2 = [
+    "https://he.wikipedia.org/wiki/%D7%A7%D7%A8%D7%91_%D7%90%D7%99%D7%A1%D7%90%D7%A0%D7%93%D7%9C%D7%95%D7%95%D7%90%D7%A0%D7%94",
+    "https://he.wikipedia.org/wiki/%D7%94%D7%9C%D7%9F_%D7%A7%D7%9C%D7%A8",
+    "https://he.wikipedia.org/wiki/%D7%A8%D7%95%D7%91%D7%A8%D7%98_%D7%90%D7%95%D7%A4%D7%A0%D7%94%D7%99%D7%99%D7%9E%D7%A8",
+    "https://he.wikipedia.org/wiki/%D7%93%D7%95%D7%93_%D7%91%D7%9F-%D7%92%D7%95%D7%A8%D7%99%D7%95%D7%9F",
+    "https://he.wikipedia.org/wiki/%D7%93%D7%99%D7%95%D7%A0%D7%95%D7%9F_%D7%A2%D7%A0%D7%A7",
+    "https://he.wikipedia.org/wiki/%D7%99%D7%A9%D7%A8%D7%90%D7%9C",
+    "https://he.wikipedia.org/wiki/%D7%93%D7%9E%D7%95%D7%A7%D7%A8%D7%98%D7%99%D7%94_%D7%A4%D7%A8%D7%9C%D7%9E%D7%A0%D7%98%D7%A8%D7%99%D7%AA",
+    "https://he.wikipedia.org/wiki/%D7%9E%D7%93%D7%99%D7%A0%D7%94_%D7%99%D7%94%D7%95%D7%93%D7%99%D7%AA_%D7%95%D7%93%D7%9E%D7%95%D7%A7%D7%A8%D7%98%D7%99%D7%AA",
+    "https://he.wikipedia.org/wiki/%D7%94%D7%99%D7%9D_%D7%94%D7%AA%D7%99%D7%9B%D7%95%D7%9F",
+    "https://he.wikipedia.org/wiki/%D7%AA%D7%9C_%D7%90%D7%91%D7%99%D7%91-%D7%99%D7%A4%D7%95",
+    "https://he.wikipedia.org/wiki/%D7%94%D7%A1%D7%9B%D7%A1%D7%95%D7%9A_%D7%94%D7%99%D7%A9%D7%A8%D7%90%D7%9C%D7%99-%D7%A2%D7%A8%D7%91%D7%99",
+    "https://he.wikipedia.org/wiki/%D7%99%D7%A8%D7%95%D7%A9%D7%9C%D7%99%D7%9D",
+    "https://he.wikipedia.org/wiki/%D7%94%D7%A9%D7%95%D7%90%D7%94",
+    "https://he.wikipedia.org/wiki/%D7%99%D7%94%D7%95%D7%93%D7%99%D7%9D",
+    "https://he.wikipedia.org/wiki/%D7%A0%D7%A6%D7%A8%D7%95%D7%AA",
+    "https://he.wikipedia.org/wiki/%D7%9E%D7%95%D7%A1%D7%9C%D7%9E%D7%99%D7%9D",
+    "https://he.wikipedia.org/wiki/%D7%93%D7%A8%D7%95%D7%96%D7%99%D7%9D",
+    "https://he.wikipedia.org/wiki/%D7%A2%D7%A8%D7%91%D7%99%D7%99_%D7%99%D7%A9%D7%A8%D7%90%D7%9C",
+    "https://he.wikipedia.org/wiki/%D7%91%D7%93%D7%95%D7%90%D7%99%D7%9D",
+    "https://he.wikipedia.org/wiki/%D7%9E%D7%9C%D7%95%D7%9F_%D7%94%D7%9E%D7%9C%D7%9A_%D7%93%D7%95%D7%93",
+    "https://he.wikipedia.org/wiki/%D7%91%D7%99%D7%AA_%D7%94%D7%A9%D7%92%D7%A8%D7%99%D7%A8%D7%95%D7%AA_%D7%94%D7%A8%D7%95%D7%A1%D7%99%D7%AA",
+    "https://he.wikipedia.org/wiki/%D7%9E%D7%92%D7%93%D7%9C_%D7%93%D7%95%D7%93",
+    "https://he.wikipedia.org/wiki/%D7%94%D7%9E%D7%A8%D7%9B%D7%96_%D7%94%D7%91%D7%94%D7%90%D7%99_%D7%94%D7%A2%D7%95%D7%9C%D7%9E%D7%99#%D7%94%D7%9E%D7%AA%D7%97%D7%9D_%D7%94%D7%91%D7%94%D7%90%D7%99_%D7%A2%D7%9C_%D7%94%D7%A8_%D7%94%D7%9B%D7%A8%D7%9E%D7%9C",
+    "https://he.wikipedia.org/wiki/%D7%A1%D7%98%D7%9C%D7%94_%D7%9E%D7%90%D7%A8%D7%99%D7%A1",
+    "https://he.wikipedia.org/wiki/%D7%90%D7%91%D7%90_%D7%90%D7%91%D7%9F",
+    "https://he.wikipedia.org/wiki/%D7%A9%D7%99%D7%A8%D7%95%D7%AA_%D7%94%D7%91%D7%99%D7%98%D7%97%D7%95%D7%9F_%D7%94%D7%9B%D7%9C%D7%9C%D7%99",
+    "https://he.wikipedia.org/wiki/%D7%94%D7%97%D7%91%D7%A8%D7%94_%D7%9C%D7%94%D7%92%D7%A0%D7%AA_%D7%94%D7%98%D7%91%D7%A2",
+    "https://he.wikipedia.org/wiki/%D7%9E%D7%9E%D7%A9%D7%9C%D7%AA_%D7%99%D7%A9%D7%A8%D7%90%D7%9C",
+    "https://he.wikipedia.org/wiki/%D7%99%D7%95%D7%A0%D7%94_%D7%91%D7%9F_%D7%90%D7%9E%D7%99%D7%AA%D7%99",
+    "https://he.wikipedia.org/wiki/%D7%94%D7%94%D7%92%D7%A0%D7%94",
+    "https://he.wikipedia.org/wiki/%D7%90%D7%A8%D7%92%D7%95%D7%9F_%D7%A6%D7%91%D7%90%D7%99_%D7%9C%D7%90%D7%95%D7%9E%D7%99",
+    "https://he.wikipedia.org/wiki/%D7%96%D7%90%D7%91_%D7%96%27%D7%91%D7%95%D7%98%D7%99%D7%A0%D7%A1%D7%A7%D7%99",
+    "https://he.wikipedia.org/wiki/%D7%9E%D7%90%D7%99%D7%A8_%D7%93%D7%99%D7%96%D7%A0%D7%92%D7%95%D7%A3",
+    "https://he.wikipedia.org/wiki/%D7%94%D7%9B%D7%A8%D7%96%D7%AA_%D7%94%D7%A2%D7%A6%D7%9E%D7%90%D7%95%D7%AA",
+    "https://he.wikipedia.org/wiki/%D7%91%D7%A2%D7%99%D7%A8_%D7%94%D7%94%D7%A8%D7%92%D7%94",
+    "https://he.wikipedia.org/wiki/%D7%97%D7%99%D7%99%D7%9D_%D7%A0%D7%97%D7%9E%D7%9F_%D7%91%D7%99%D7%90%D7%9C%D7%99%D7%A7",
+    "https://he.wikipedia.org/wiki/%D7%A6%D7%99%D7%95%D7%A0%D7%95%D7%AA_%D7%91%D7%A8%D7%95%D7%A1%D7%99%D7%94",
+    "https://he.wikipedia.org/wiki/%D7%94%D7%92%D7%93%D7%95%D7%93%D7%99%D7%9D_%D7%94%D7%A2%D7%91%D7%A8%D7%99%D7%99%D7%9D",
+    "https://he.wikipedia.org/wiki/%D7%A4%D7%A8%D7%A2%D7%95%D7%AA_%D7%A4%D7%98%D7%9C%D7%99%D7%95%D7%A8%D7%94",
+    "https://he.wikipedia.org/wiki/%D7%94%D7%90%D7%99%D7%9E%D7%A4%D7%A8%D7%99%D7%94_%D7%94%D7%91%D7%A8%D7%99%D7%98%D7%99%D7%AA",
+    "https://he.wikipedia.org/wiki/%D7%94%D7%90%D7%99%D7%9E%D7%A4%D7%A8%D7%99%D7%94_%D7%94%D7%A1%D7%A4%D7%A8%D7%93%D7%99%D7%AA",
+    "https://he.wikipedia.org/wiki/%D7%94%D7%90%D7%99%D7%9E%D7%A4%D7%A8%D7%99%D7%94_%D7%94%D7%A4%D7%95%D7%A8%D7%98%D7%95%D7%92%D7%96%D7%99%D7%AA",
+    "https://he.wikipedia.org/wiki/%D7%97%D7%91%D7%A8%D7%AA_%D7%94%D7%95%D7%93%D7%95_%D7%94%D7%9E%D7%96%D7%A8%D7%97%D7%99%D7%AA_%D7%94%D7%91%D7%A8%D7%99%D7%98%D7%99%D7%AA",
+    "https://he.wikipedia.org/wiki/%D7%9E%D7%9C%D7%97%D7%9E%D7%AA_%D7%9E%D7%90%D7%94_%D7%94%D7%A9%D7%A0%D7%99%D7%9D_%D7%94%D7%A9%D7%A0%D7%99%D7%99%D7%94",
+    "https://he.wikipedia.org/wiki/%D7%A2%D7%91%D7%93%D7%95%D7%AA",
+    "https://he.wikipedia.org/wiki/%D7%94%D7%9E%D7%9C%D7%97%D7%9E%D7%95%D7%AA_%D7%94%D7%A0%D7%A4%D7%95%D7%9C%D7%99%D7%90%D7%95%D7%A0%D7%99%D7%95%D7%AA",
+    "https://he.wikipedia.org/wiki/%D7%A0%D7%A4%D7%95%D7%9C%D7%99%D7%90%D7%95%D7%9F_%D7%91%D7%95%D7%A0%D7%A4%D7%A8%D7%98%D7%94",
+    "https://he.wikipedia.org/wiki/%D7%9E%D7%9C%D7%97%D7%9E%D7%AA_%D7%94%D7%A2%D7%95%D7%9C%D7%9D_%D7%94%D7%A8%D7%90%D7%A9%D7%95%D7%A0%D7%94",
+    "https://he.wikipedia.org/wiki/%D7%94%D7%90%D7%99%D7%9E%D7%A4%D7%A8%D7%99%D7%94_%D7%94%D7%A2%D7%95%D7%AA%27%D7%9E%D7%90%D7%A0%D7%99%D7%AA",
+    "https://he.wikipedia.org/wiki/%D7%94%D7%90%D7%99%D7%9E%D7%A4%D7%A8%D7%99%D7%94_%D7%94%D7%A8%D7%95%D7%A1%D7%99%D7%AA",
+    "https://he.wikipedia.org/wiki/%D7%94%D7%90%D7%99%D7%9E%D7%A4%D7%A8%D7%99%D7%94_%D7%94%D7%91%D7%99%D7%96%D7%A0%D7%98%D7%99%D7%AA",
+    "https://he.wikipedia.org/wiki/%D7%91%D7%99%D7%AA_%D7%A2%D7%91%D7%90%D7%A1",
+    "https://he.wikipedia.org/wiki/%D7%95%D7%99%D7%A7%D7%99%D7%A0%D7%92%D7%99%D7%9D",
+    "https://he.wikipedia.org/wiki/%D7%A0%D7%A6%D7%A8%D7%95%D7%AA_%D7%A7%D7%AA%D7%95%D7%9C%D7%99%D7%AA",
+    "https://he.wikipedia.org/wiki/%D7%95%D7%99%D7%A0%D7%A1%D7%98%D7%95%D7%9F_%D7%A6%27%D7%A8%D7%A6%27%D7%99%D7%9C",
+    "https://he.wikipedia.org/wiki/%D7%A4%D7%A8%D7%A0%D7%A7%D7%9C%D7%99%D7%9F_%D7%93%D7%9C%D7%90%D7%A0%D7%95_%D7%A8%D7%95%D7%96%D7%95%D7%95%D7%9C%D7%98",
+    "https://he.wikipedia.org/wiki/%D7%9E%D7%9C%D7%97%D7%9E%D7%AA_%D7%94%D7%A2%D7%95%D7%9C%D7%9D_%D7%94%D7%A9%D7%A0%D7%99%D7%99%D7%94",
+    "https://he.wikipedia.org/wiki/%D7%94%D7%90%D7%99%D7%9E%D7%A4%D7%A8%D7%99%D7%94_%D7%94%D7%90%D7%95%D7%A1%D7%98%D7%A8%D7%95-%D7%94%D7%95%D7%A0%D7%92%D7%A8%D7%99%D7%AA",
+    "https://he.wikipedia.org/wiki/%D7%90%D7%A8%D7%9E%D7%99%D7%99%D7%94_%D7%A7%D7%A8%D7%99%D7%95%D7%91%D7%94",
+    "https://he.wikipedia.org/wiki/%D7%94%D7%A6%D7%91%D7%90_%D7%94%D7%90%D7%93%D7%95%D7%9D",
+    "https://he.wikipedia.org/wiki/%D7%9E%D7%A8%D7%93_%D7%95%D7%A8%D7%A9%D7%94",
+    "https://he.wikipedia.org/wiki/%D7%9E%D7%9E%D7%9C%D7%9B%D7%AA_%D7%99%D7%A9%D7%A8%D7%90%D7%9C_%D7%94%D7%9E%D7%90%D7%95%D7%97%D7%93%D7%AA",
+    "https://he.wikipedia.org/wiki/%D7%91%D7%99%D7%AA_%D7%94%D7%9E%D7%A7%D7%93%D7%A9",
+    "https://he.wikipedia.org/wiki/%D7%94%D7%9E%D7%A8%D7%93_%D7%94%D7%A2%D7%A8%D7%91%D7%99_%D7%94%D7%92%D7%93%D7%95%D7%9C",
+    "https://he.wikipedia.org/wiki/%D7%92%D7%A8%D7%9E%D7%A0%D7%99%D7%94_%D7%94%D7%A0%D7%90%D7%A6%D7%99%D7%AA",
+    "https://he.wikipedia.org/wiki/%D7%94%D7%9C%D7%99%D7%92%D7%94_%D7%94%D7%A2%D7%A8%D7%91%D7%99%D7%AA",
+    "https://he.wikipedia.org/wiki/%D7%91%D7%A0%D7%99%D7%9E%D7%99%D7%9F_%D7%96%D7%90%D7%91_%D7%94%D7%A8%D7%A6%D7%9C",
+    "https://he.wikipedia.org/wiki/%D7%9E%D7%A0%D7%97%D7%9D_%D7%91%D7%92%D7%99%D7%9F",
+    "https://he.wikipedia.org/wiki/%D7%9E%D7%9C%D7%97%D7%9E%D7%AA_%D7%99%D7%95%D7%9D_%D7%94%D7%9B%D7%99%D7%A4%D7%95%D7%A8%D7%99%D7%9D",
+    "https://he.wikipedia.org/wiki/%D7%92%D7%95%D7%9C%D7%93%D7%94_%D7%9E%D7%90%D7%99%D7%A8",
+    "https://he.wikipedia.org/wiki/%D7%9E%D7%9C%D7%97%D7%9E%D7%AA_%D7%94%D7%94%D7%AA%D7%A9%D7%94",
+    "https://he.wikipedia.org/wiki/%D7%94%D7%96%D7%99%D7%A8%D7%94_%D7%94%D7%90%D7%99%D7%A8%D7%95%D7%A4%D7%99%D7%AA:_1942%E2%80%931945",
+    "https://he.wikipedia.org/wiki/%D7%9E%D7%9C%D7%97%D7%9E%D7%AA_%D7%94%D7%A2%D7%A6%D7%9E%D7%90%D7%95%D7%AA",
+    "https://he.wikipedia.org/wiki/%D7%9E%D7%9C%D7%97%D7%9E%D7%AA_%D7%A9%D7%A9%D7%AA_%D7%94%D7%99%D7%9E%D7%99%D7%9D",
+    "https://he.wikipedia.org/wiki/%D7%A2%D7%9C%D7%99%D7%99%D7%94_%D7%9C%D7%90%D7%A8%D7%A5_%D7%99%D7%A9%D7%A8%D7%90%D7%9C#%D7%94%D7%A2%D7%9C%D7%99%D7%95%D7%AA_%D7%94%D7%92%D7%93%D7%95%D7%9C%D7%95%D7%AA_%D7%A2%D7%93_%D7%9C%D7%94%D7%A7%D7%9E%D7%AA_%D7%94%D7%9E%D7%93%D7%99%D7%A0%D7%94",
+    "https://he.wikipedia.org/wiki/%D7%A6%D7%91%D7%90_%D7%94%D7%92%D7%A0%D7%94_%D7%9C%D7%99%D7%A9%D7%A8%D7%90%D7%9C",
+    "https://he.wikipedia.org/wiki/%D7%90%D7%91%D7%99%D7%91_%D7%9B%D7%95%D7%9B%D7%91%D7%99",
+    "https://he.wikipedia.org/wiki/%D7%9E%D7%9C%D7%97%D7%9E%D7%AA_%D7%94%D7%9E%D7%A4%D7%A8%D7%A5",
+    "https://he.wikipedia.org/wiki/%D7%91%D7%A0%D7%99%D7%9E%D7%99%D7%9F_%D7%A0%D7%AA%D7%A0%D7%99%D7%94%D7%95",
+    "https://he.wikipedia.org/wiki/%D7%90%D7%A8%D7%99%D7%90%D7%9C_%D7%A9%D7%A8%D7%95%D7%9F",
+    "https://he.wikipedia.org/wiki/%D7%A6%D7%99%D7%95%D7%A0%D7%95%D7%AA",
+    "https://he.wikipedia.org/wiki/%D7%AA%D7%A0%D7%95%D7%A2%D7%AA_%D7%94%D7%94%D7%A9%D7%9B%D7%9C%D7%94_%D7%94%D7%99%D7%94%D7%95%D7%93%D7%99%D7%AA",
+    "https://he.wikipedia.org/wiki/%D7%99%D7%94%D7%95%D7%93%D7%99%D7%9D",
+    "https://he.wikipedia.org/wiki/%D7%94%D7%A2%D7%9C%D7%99%D7%99%D7%94_%D7%94%D7%A9%D7%A0%D7%99%D7%99%D7%94",
+    "https://he.wikipedia.org/wiki/%D7%A6%D7%99%D7%95%D7%A0%D7%95%D7%AA_%D7%9E%D7%A2%D7%A9%D7%99%D7%AA",
+    "https://he.wikipedia.org/wiki/%D7%94%D7%A2%D7%9C%D7%99%D7%99%D7%94_%D7%94%D7%A8%D7%90%D7%A9%D7%95%D7%A0%D7%94",
+    "https://he.wikipedia.org/wiki/%D7%90%D7%93%D7%9E%D7%95%D7%A0%D7%93_%D7%92%27%D7%99%D7%99%D7%9E%D7%A1_%D7%93%D7%94_%D7%A8%D7%95%D7%98%D7%A9%D7%99%D7%9C%D7%93",
+    "https://he.wikipedia.org/wiki/%D7%A6%D7%99%D7%95%D7%A0%D7%95%D7%AA_%D7%93%D7%AA%D7%99%D7%AA",
+    "https://he.wikipedia.org/wiki/%D7%90%D7%91%D7%A8%D7%94%D7%9D_%D7%99%D7%A6%D7%97%D7%A7_%D7%94%D7%9B%D7%94%D7%9F_%D7%A7%D7%95%D7%A7",
+    "https://he.wikipedia.org/wiki/%D7%AA%D7%A4%D7%99%D7%A1%D7%AA_%D7%94%D7%91%D7%99%D7%98%D7%97%D7%95%D7%9F_%D7%A9%D7%9C_%D7%99%D7%A9%D7%A8%D7%90%D7%9C",
+    "https://he.wikipedia.org/wiki/%D7%99%D7%95%D7%9D_%D7%94%D7%A2%D7%A6%D7%9E%D7%90%D7%95%D7%AA",
+    "https://he.wikipedia.org/wiki/%D7%90%D7%A0%D7%98%D7%99%D7%A9%D7%9E%D7%99%D7%95%D7%AA",
+    "https://he.wikipedia.org/wiki/%D7%90%D7%99%D7%99%D7%96%D7%A7_%D7%A0%D7%99%D7%95%D7%98%D7%95%D7%9F",
+    "https://he.wikipedia.org/wiki/%D7%90%D7%95%D7%92%D7%95%D7%A1%D7%98%D7%9F_%D7%9C%D7%95%D7%90%D7%99_%D7%A7%D7%95%D7%A9%D7%99",
+    "https://he.wikipedia.org/wiki/%D7%96%27%D7%95%D7%96%D7%A3_%D7%9C%D7%95%D7%90%D7%99_%D7%9C%D7%92%D7%A8%D7%90%D7%A0%D7%96%27",
+    "https://he.wikipedia.org/wiki/%D7%90%D7%A8%D7%9B%D7%99%D7%9E%D7%93%D7%A1",
+    "https://he.wikipedia.org/wiki/%D7%90%D7%91%D7%95%D7%9C%D7%95%D7%A6%D7%99%D7%94_%D7%A9%D7%9C_%D7%94%D7%90%D7%93%D7%9D",
+    "https://he.wikipedia.org/wiki/%D7%A6%D7%99%D7%99%D7%93%D7%99%D7%9D-%D7%9C%D7%A7%D7%98%D7%99%D7%9D",
+    "https://he.wikipedia.org/wiki/%D7%91%D7%99%D7%A0%D7%94_%D7%9E%D7%9C%D7%90%D7%9B%D7%95%D7%AA%D7%99%D7%AA",
+    "https://he.wikipedia.org/wiki/%D7%A7%D7%A4%D7%99%D7%98%D7%9C%D7%99%D7%96%D7%9D",
+    "https://he.wikipedia.org/wiki/%D7%A1%D7%95%D7%A6%D7%99%D7%90%D7%9C%D7%99%D7%96%D7%9D",
+    "https://he.wikipedia.org/wiki/%D7%90%D7%A1%D7%A4%D7%99%D7%A8%D7%99%D7%9F",
+    "https://he.wikipedia.org/wiki/%D7%90%D7%91%D7%95%D7%9C%D7%95%D7%A6%D7%99%D7%94",
+    "https://he.wikipedia.org/wiki/%D7%90%D7%A0%D7%94_%D7%A4%D7%A8%D7%A0%D7%A7",
+    "https://he.wikipedia.org/wiki/%D7%A7%D7%A8%D7%9C_%D7%A4%D7%A8%D7%99%D7%93%D7%A8%D7%99%D7%9A_%D7%92%D7%90%D7%95%D7%A1",
+    "https://he.wikipedia.org/wiki/%D7%90%D7%9C%D7%99%D7%96%D7%91%D7%AA_%D7%94%D7%A8%D7%90%D7%A9%D7%95%D7%A0%D7%94,_%D7%9E%D7%9C%D7%9B%D7%AA_%D7%90%D7%A0%D7%92%D7%9C%D7%99%D7%94",
+    "https://he.wikipedia.org/wiki/%D7%94%D7%A0%D7%A8%D7%99_%D7%94%D7%A9%D7%9E%D7%99%D7%A0%D7%99,_%D7%9E%D7%9C%D7%9A_%D7%90%D7%A0%D7%92%D7%9C%D7%99%D7%94",
+    "https://he.wikipedia.org/wiki/%D7%A1%D7%99%D7%9F_(%D7%90%D7%96%D7%95%D7%A8)",
+    "https://he.wikipedia.org/wiki/%D7%94%D7%99%D7%A0%D7%93%D7%95%D7%90%D7%99%D7%96%D7%9D",
+    "https://he.wikipedia.org/wiki/%D7%99%D7%A4%D7%9F",
+    "https://he.wikipedia.org/wiki/%D7%A0%D7%A6%D7%A8%D7%95%D7%AA_%D7%90%D7%95%D7%A8%D7%AA%D7%95%D7%93%D7%95%D7%A7%D7%A1%D7%99%D7%AA",
+    "https://he.wikipedia.org/wiki/%D7%94%D7%A4%D7%A8%D7%93%D7%AA_%D7%94%D7%93%D7%AA_%D7%9E%D7%94%D7%9E%D7%93%D7%99%D7%A0%D7%94",
+    "https://he.wikipedia.org/wiki/%D7%93%D7%9E%D7%95%D7%A7%D7%A8%D7%98%D7%99%D7%94_%D7%9C%D7%99%D7%91%D7%A8%D7%9C%D7%99%D7%AA",
+    "https://he.wikipedia.org/wiki/%D7%9E%D7%A8%D7%A7%D7%A1%D7%99%D7%96%D7%9D",
+    "https://he.wikipedia.org/wiki/%D7%A4%D7%A1%D7%99%D7%9B%D7%95%D7%9C%D7%95%D7%92%D7%99%D7%94",
+    "https://he.wikipedia.org/wiki/%D7%A1%D7%95%D7%A7%D7%A8%D7%98%D7%A1",
+    "https://he.wikipedia.org/wiki/%D7%94%D7%9E%D7%94%D7%A4%D7%9B%D7%94_%D7%94%D7%A6%D7%A8%D7%A4%D7%AA%D7%99%D7%AA",
+    "https://he.wikipedia.org/wiki/%D7%90%D7%A7%D7%95%D7%9C%D7%95%D7%92%D7%99%D7%94",
+    "https://he.wikipedia.org/wiki/%D7%90%D7%9C%D7%9B%D7%A1%D7%A0%D7%93%D7%A8_%D7%92%D7%A8%D7%94%D7%9D_%D7%91%D7%9C",
+    "https://he.wikipedia.org/wiki/%D7%90%D7%93%D7%9D",
+    "https://he.wikipedia.org/wiki/%D7%A4%D7%9E%D7%99%D7%A0%D7%99%D7%96%D7%9D",
+    "https://he.wikipedia.org/wiki/%D7%91%D7%A8%D7%99%D7%90%D7%AA_%D7%94%D7%A2%D7%95%D7%9C%D7%9D",
+    "https://he.wikipedia.org/wiki/%D7%AA%D7%95%D7%A8%D7%A9%D7%94,_%D7%A1%D7%91%D7%99%D7%91%D7%94_%D7%95%D7%94%D7%AA%D7%A4%D7%AA%D7%97%D7%95%D7%AA_%D7%94%D7%90%D7%93%D7%9D",
+    "https://he.wikipedia.org/wiki/%D7%91%D7%97%D7%99%D7%A8%D7%94_%D7%97%D7%95%D7%A4%D7%A9%D7%99%D7%AA"]
+
+
+
 #generate(readyUrlList, "2019_02_20_train_data", True)
 
 # print(getStringFromDataFile("train_data"))
 
-generate(targetUrlList, "2019_04_17_train_data", True)
+UrlList = []
+UrlList.extend(readyUrlList1)
+UrlList.extend(readyUrlList2)
+generate(UrlList, "2019_06_27_all_data", True)
 
 
 
