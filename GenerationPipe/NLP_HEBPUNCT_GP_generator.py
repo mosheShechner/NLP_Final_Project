@@ -351,7 +351,7 @@ readyUrlList2 = [
 UrlList = []
 UrlList.extend(readyUrlList1)
 UrlList.extend(readyUrlList2)
-generate(UrlList, "2019_06_27_all_data", True)
+#generate(UrlList, "2019_06_27_all_data", True)
 
 
 
