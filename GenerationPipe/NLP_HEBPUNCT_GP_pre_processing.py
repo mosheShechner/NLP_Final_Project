@@ -207,7 +207,7 @@ def getValidVectorList(inXYList):
         if checkVectorOK(xy):
             outXYList.append(xy)
         else:
-            print("print: cought bad vector = %s" % xy)
+            print("print: caught bad vector = %s" % xy)
     return outXYList
 
 # 8.Gather Statistics -
